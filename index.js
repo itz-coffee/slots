@@ -12,7 +12,7 @@ if (args == "-h" || args == "--help") {
 (U) Horseshoes   2   1   1
 (=) Bars         3   1   1
 --------------------------
-%..             3
+%..             1
 %%.             5
 %%%            11
 OOO, OO=       11
@@ -66,7 +66,7 @@ const slots = {
     [ Symbols.BAR ]:         [ 3, 1, 1  ],
 }
 const payouts = [
-    [ [ Symbols.CHERRY ],                                           3 ],
+    [ [ Symbols.CHERRY ],                                           1 ],
     [ [ Symbols.CHERRY, Symbols.CHERRY ],                           5 ],
     [ [ Symbols.CHERRY, Symbols.CHERRY, Symbols.CHERRY ],          11 ],
     [ [ Symbols.ORANGE, Symbols.ORANGE, Symbols.ORANGE ],          11 ],
