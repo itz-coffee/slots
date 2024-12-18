@@ -1,6 +1,6 @@
 const args = discord.variables.__args[0]
 
-if (args == "-h" || args == "--help")
+if (args == "-h" || args == "--help") {
     console.log(".t slots (1-3) (-b || --balance)")
     return console.log(
 `
@@ -21,6 +21,8 @@ UUU            18
 ===           100
 `
     )
+}
+
 if (args == "-b" || args == "--balance")
     return console.log("$" + Number(discord.storage.user.slots_balance).toLocaleString())
 
