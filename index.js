@@ -1,7 +1,26 @@
 const args = discord.variables.__args[0]
 
 if (args == "-h" || args == "--help")
-    return console.log(".t slots (1-3) (-b || --balance)")
+    console.log(".t slots (1-3) (-b || --balance)")
+    return console.log(
+`
+(%) Cherries     3   7   3
+(O) Oranges      7   1  10
+(@) Grapes       6   1   5
+(A) Bells        1  10   1
+(U) Horseshoes   2   1   1
+(=) Bars         2   1   1
+--------------------------
+%..             3
+%%.             5
+%%%            11
+OOO, OO=       11
+@@@, @@=       13
+AAA, AA=       18
+UUU            18
+===           100
+`
+    )
 if (args == "-b" || args == "--balance")
     return console.log("$" + Number(discord.storage.user.slots_balance).toLocaleString())
 
@@ -35,25 +54,25 @@ const Symbols = {
     BAR: "▃",
 }
 const slots = {
-    [Symbols.CHERRY]: [5, 7, 3],
-    [Symbols.ORANGE]: [4, 1, 10],
-    [Symbols.GRAPE]: [6, 1, 4],
-    [Symbols.BELL]: [1, 9, 1],
-    [Symbols.HORSESHOE]: [2, 1, 1],
-    [Symbols.BAR]: [2, 1, 1],
+    [ Symbols.CHERRY ]:      [ 3, 7, 3  ],
+    [ Symbols.ORANGE ]:      [ 7, 1, 10 ],
+    [ Symbols.GRAPE ]:       [ 6, 1, 5  ],
+    [ Symbols.BELL ]:        [ 1, 10, 1 ],
+    [ Symbols.HORSESHOE ]:   [ 2, 1, 1  ],
+    [ Symbols.BAR ]:         [ 2, 1, 1  ],
 }
 const payouts = [
-    [[Symbols.CHERRY], 3],
-    [[Symbols.CHERRY, Symbols.CHERRY], 5],
-    [[Symbols.CHERRY, Symbols.CHERRY, Symbols.CHERRY], 11],
-    [[Symbols.ORANGE, Symbols.ORANGE, Symbols.ORANGE], 11],
-    [[Symbols.ORANGE, Symbols.ORANGE, Symbols.BAR], 11],
-    [[Symbols.GRAPE, Symbols.GRAPE, Symbols.GRAPE], 13],
-    [[Symbols.GRAPE, Symbols.GRAPE, Symbols.BAR], 13],
-    [[Symbols.BELL, Symbols.BELL, Symbols.BELL], 18],
-    [[Symbols.BELL, Symbols.BELL, Symbols.BAR], 18],
-    [[Symbols.HORSESHOE, Symbols.HORSESHOE, Symbols.HORSESHOE], 13],
-    [[Symbols.BAR, Symbols.BAR, Symbols.BAR], 100],
+    [ [ Symbols.CHERRY ],                                           3 ],
+    [ [ Symbols.CHERRY, Symbols.CHERRY ],                           5 ],
+    [ [ Symbols.CHERRY, Symbols.CHERRY, Symbols.CHERRY ],          11 ],
+    [ [ Symbols.ORANGE, Symbols.ORANGE, Symbols.ORANGE ],          11 ],
+    [ [ Symbols.ORANGE, Symbols.ORANGE, Symbols.BAR ],             11 ],
+    [ [ Symbols.GRAPE, Symbols.GRAPE, Symbols.GRAPE ],             13 ],
+    [ [ Symbols.GRAPE, Symbols.GRAPE, Symbols.BAR ],               13 ],
+    [ [ Symbols.BELL, Symbols.BELL, Symbols.BELL ],                18 ],
+    [ [ Symbols.BELL, Symbols.BELL, Symbols.BAR ],                 18 ],
+    [ [ Symbols.HORSESHOE, Symbols.HORSESHOE, Symbols.HORSESHOE ], 13 ],
+    [ [ Symbols.BAR, Symbols.BAR, Symbols.BAR ],                  100 ],
 ]
 
 function getPayout(array) {
@@ -93,7 +112,7 @@ function spinSlots() {
     for (let index = 0; index < 3; index++) {
         for (let key in slots) {
             const val = slots[key]
-            for (let i = 0; i < val[index]; i++) {
+            for (let i = 0; i < val[index] * 3; i++) {
                 pool[index].push(key)
             }
         }
