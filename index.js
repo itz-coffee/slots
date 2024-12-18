@@ -126,7 +126,14 @@ function spinSlots() {
     return result
 }
 
+function warmup() {
+    for (let i = 0; i < 100; i++)
+        getRandomValue()
+}
+
 function run() {
+    warmup()
+
     const slots = spinSlots()
     const payout = getPayout(slots)
     const result = bet * (payout || 0)
