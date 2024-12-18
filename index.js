@@ -4,6 +4,7 @@ if (args == "-h" || args == "--help") {
     console.log(".t slots (1-3) (-b || --balance)")
     return console.log(
 `
+\`\`\`
 (%) Cherries     3   7   3
 (O) Oranges      7   1  10
 (@) Grapes       6   1   5
@@ -19,6 +20,7 @@ OOO, OO=       11
 AAA, AA=       18
 UUU            18
 ===           100
+\`\`\`
 `
     )
 }
