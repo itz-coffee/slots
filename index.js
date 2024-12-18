@@ -144,6 +144,5 @@ function run() {
     console.log("Payout:", "$" + result.toLocaleString())
     console.log("New Balance:", "$" + (balance + result).toLocaleString())
     discord.storage.user.slots_balance = balance + result
-    getPayout(slots)
 }
 run()
