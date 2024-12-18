@@ -9,7 +9,7 @@ if (args == "-h" || args == "--help") {
 (@) Grapes       6   1   5
 (A) Bells        1  10   1
 (U) Horseshoes   2   1   1
-(=) Bars         2   1   1
+(=) Bars         3   1   1
 --------------------------
 %..             3
 %%.             5
@@ -61,7 +61,7 @@ const slots = {
     [ Symbols.GRAPE ]:       [ 6, 1, 5  ],
     [ Symbols.BELL ]:        [ 1, 10, 1 ],
     [ Symbols.HORSESHOE ]:   [ 2, 1, 1  ],
-    [ Symbols.BAR ]:         [ 2, 1, 1  ],
+    [ Symbols.BAR ]:         [ 3, 1, 1  ],
 }
 const payouts = [
     [ [ Symbols.CHERRY ],                                           3 ],
