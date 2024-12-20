@@ -1,7 +1,7 @@
 const args = discord.variables.__args[0]
 
 if (args == "-h" || args == "--help") {
-    console.log(".t slots (1-3) (-b || --balance)")
+    console.log(".t slots (1-3) [-b] [--balance]")
     return console.log(
 `
 \`\`\`
