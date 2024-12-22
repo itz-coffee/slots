@@ -28,10 +28,16 @@ UUU            18
 if (args == "-b" || args == "--balance")
     return console.log("$" + Number(discord.storage.user.slots_balance).toLocaleString())
 
+// function getRandomValue(min = 0, max = 100) {
+//   const rand = crypto.getRandomValues(new Uint32Array(1))
+//   const num = Number("0." + rand)
+//   return Math.floor(num * (max - min + 1)) + min
+// }
+
 function getRandomValue(min = 0, max = 100) {
-  const rand = crypto.getRandomValues(new Uint32Array(1))
-  const num = Number("0." + rand)
-  return Math.floor(num * (max - min + 1)) + min
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 Array.prototype.equals = function(input) {
