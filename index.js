@@ -5,6 +5,7 @@ if (args == "-h" || args == "--help") {
     return console.log(
 `
 \`\`\`
+Bet: 1-3, $500 each
 (%) Cherries     3   7   3
 (O) Oranges      7   1  10
 (@) Grapes       6   1   5
