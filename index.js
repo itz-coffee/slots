@@ -15,7 +15,7 @@ Bet: 1-3, $500 each
 (=) Bars         3   1   1
 --------------------------
 %..             1
-%%.             5
+%%.             2
 %%%            11
 OOO, OO=       11
 @@@, @@=       13
@@ -75,7 +75,7 @@ const slots = {
 }
 const payouts = [
     [ [ Symbols.CHERRY ],                                           1 ],
-    [ [ Symbols.CHERRY, Symbols.CHERRY ],                           5 ],
+    [ [ Symbols.CHERRY, Symbols.CHERRY ],                           2 ],
     [ [ Symbols.CHERRY, Symbols.CHERRY, Symbols.CHERRY ],          11 ],
     [ [ Symbols.ORANGE, Symbols.ORANGE, Symbols.ORANGE ],          11 ],
     [ [ Symbols.ORANGE, Symbols.ORANGE, Symbols.BAR ],             11 ],
