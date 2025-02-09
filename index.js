@@ -5,7 +5,7 @@ if (args == "-h" || args == "--help") {
     return console.log(
 `
 \`\`\`
-Bet: 1-3, $500 each
+Bet: $500 each
 --------------------------
 (%) Cherries     3   7   3
 (O) Oranges      7   1  10
@@ -49,13 +49,14 @@ Array.prototype.equals = function(input) {
     return true
 }
 
-function clamp(num, min, max) {
-  return Math.min(Math.max(num, min), max);
-}
+// function clamp(num, min, max) {
+//   return Math.min(Math.max(num, min), max);
+// }
 
 let balance = Number(discord.storage.user.slots_balance) || 10000
 let num = Number(args) || 1
-let bet = clamp(Math.abs(num), 1, 3) * 500
+// let bet = clamp(Math.abs(num), 1, 3) * 500
+let bet = Math.abs(num) * 500
 
 const Symbols = {
     CHERRY: ":cherries:",
