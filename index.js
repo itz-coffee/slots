@@ -1,4 +1,11 @@
+const version = "1.0.0"
+const user_version = discord.storage.user.slots_version
 const args = discord.variables.__args[0]
+
+if (!user_version || version.substring(0, 1) !== user_version.substring(0, 1)) {
+    discord.storage.user.slots_balance = 5000
+    discord.storage.user.slots_version = version
+}
 
 if (args == "-h" || args == "--help") {
     console.log(".t slots (1-3) [-b] [--balance]")
@@ -49,14 +56,14 @@ Array.prototype.equals = function(input) {
     return true
 }
 
-// function clamp(num, min, max) {
-//   return Math.min(Math.max(num, min), max);
-// }
+function clamp(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+}
 
 let balance = Number(discord.storage.user.slots_balance) || 10000
 let num = Number(args) || 1
-// let bet = clamp(Math.abs(num), 1, 3) * 500
-let bet = Math.abs(num) * 500
+let bet = clamp(Math.abs(num), 1, 3) * 500
+// let bet = Math.abs(num) * 500
 
 const Symbols = {
     CHERRY: ":cherries:",
