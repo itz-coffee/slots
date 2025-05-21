@@ -2,10 +2,10 @@ const version = "1.0.0"
 const user_version = discord.storage.user.slots_version
 const args = discord.variables.__args[0]
 
-if (!user_version || version.substring(0, 1) !== user_version.substring(0, 1)) {
-    discord.storage.user.slots_balance = 5000
-    discord.storage.user.slots_version = version
-}
+// if (!user_version || version.substring(0, 1) !== user_version.substring(0, 1)) {
+//     discord.storage.user.slots_balance = 5000
+//     discord.storage.user.slots_version = version
+// }
 
 if (args == "-h" || args == "--help") {
     console.log(".t slots (1-3) [-b] [--balance]")
