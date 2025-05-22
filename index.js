@@ -1,11 +1,6 @@
-const version = "1.0.0"
+const version = "v1.0.0"
 const user_version = discord.storage.user.slots_version
 const args = discord.variables.__args[0]
-
-// if (!user_version || version.substring(0, 1) !== user_version.substring(0, 1)) {
-//     discord.storage.user.slots_balance = 5000
-//     discord.storage.user.slots_version = version
-// }
 
 if (args == "-h" || args == "--help") {
     console.log(".t slots (1-3) [-b] [--balance]")
@@ -34,14 +29,10 @@ UUU            18
     )
 }
 
-if (args == "-b" || args == "--balance")
-    return console.log("$" + Number(discord.storage.user.slots_balance).toLocaleString())
-
-// function getRandomValue(min = 0, max = 100) {
-//   const rand = crypto.getRandomValues(new Uint32Array(1))
-//   const num = Number("0." + rand)
-//   return Math.floor(num * (max - min + 1)) + min
-// }
+if (args == "-b" || args == "--balance") {
+    const bal = Number(discord.storage.user.slots_balance)
+    return console.log("$" + bal.toLocaleString())
+}
 
 function getRandomValue(min = 0, max = 100) {
     min = Math.ceil(min)
@@ -159,6 +150,7 @@ function run() {
     console.log("Slots:", slots.join(" "))
     console.log("Payout:", "$" + result.toLocaleString())
     console.log("New Balance:", "$" + (balance + result).toLocaleString())
+    console.log(`-# ${version} | Use -h for help | @itz_coffee`
     discord.storage.user.slots_balance = balance + result
 }
 run()
