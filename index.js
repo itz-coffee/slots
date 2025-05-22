@@ -150,7 +150,7 @@ function run() {
     console.log("Slots:", slots.join(" "))
     console.log("Payout:", "$" + result.toLocaleString())
     console.log("New Balance:", "$" + (balance + result).toLocaleString())
-    console.log(`-# ${version} | Use -h for help | @itz_coffee`)
+    console.log("-# " + version + " | Use -h for help | @itz_coffee")
     discord.storage.user.slots_balance = balance + result
 }
 run()
