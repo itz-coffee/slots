@@ -1,5 +1,3 @@
-const version = "v1.0.0"
-const user_version = discord.storage.user.slots_version
 const args = discord.variables.__args[0]
 
 if (args == "-h" || args == "--help") {
@@ -150,7 +148,6 @@ function run() {
     console.log("Slots:", slots.join(" "))
     console.log("Payout:", "$" + result.toLocaleString())
     console.log("New Balance:", "$" + (balance + result).toLocaleString())
-    console.log("-# " + version + " | Use -h for help | @itz_coffee")
     discord.storage.user.slots_balance = balance + result
 }
 run()
