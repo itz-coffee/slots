@@ -52,7 +52,6 @@ function clamp(num, min, max) {
 let balance = Number(discord.storage.user.slots_balance) || 10000
 let num = Number(args) || 1
 let bet = clamp(Math.abs(num), 1, 3) * 500
-// let bet = Math.abs(num) * 500
 
 const Symbols = {
     CHERRY: ":cherries:",
