@@ -1,4 +1,5 @@
 const args = discord.variables.__args[0]
+const version = "v1.0.2"
 
 if (args == "-h" || args == "--help") {
     console.log(".t slots (1-3) [-b] [--balance]")
@@ -141,12 +142,22 @@ function run() {
     const slots = spinSlots()
     const payout = getPayout(slots)
     const result = bet * (payout || 0)
+    const output = {
+        embed: {
+            title: "Slots",
+            color: 0xFF00FF,
+            fields: [
+                {name: "Bet", value: "$" + bet.toLocaleString()},
+                {name: "Slots:", value: slots.join(" ")},
+                {name: "Payout:", value: "$" + result.toLocaleString()},
+                {name: "New Balance:", value: "$" + (balance + result).toLocaleString()},
+            ],
+            footer: version + " - itz_coffee"
+        }
+    }
 
     balance -= bet
-    console.log("Bet:", "$" + bet.toLocaleString())
-    console.log("Slots:", slots.join(" "))
-    console.log("Payout:", "$" + result.toLocaleString())
-    console.log("New Balance:", "$" + (balance + result).toLocaleString())
     discord.storage.user.slots_balance = balance + result
+    console.log(JSON.stringify(output))
 }
 run()
