@@ -1,5 +1,4 @@
 const args = discord.variables.__args[0]
-const version = "v1.0.2"
 
 if (args == "-h" || args == "--help") {
     console.log(".t slots (1-3) [-b] [--balance]")
@@ -147,12 +146,11 @@ function run() {
             title: "Slots",
             color: 0xFF00FF,
             fields: [
-                {name: "Bet", value: "$" + bet.toLocaleString()},
-                {name: "Slots:", value: slots.join(" ")},
-                {name: "Payout:", value: "$" + result.toLocaleString()},
-                {name: "New Balance:", value: "$" + (balance + result).toLocaleString()},
-            ],
-            footer: version + " - itz_coffee"
+                {name: "Bet:", value: "$" + bet.toLocaleString(), inline: true},
+                {name: "Slots:", value: slots.join(" "), inline: true},
+                {name: "Payout:", value: "$" + result.toLocaleString(), inline: true},
+                {name: "New Balance:", value: "$" + (balance + result).toLocaleString(), inline: true},
+            ]
         }
     }
 
