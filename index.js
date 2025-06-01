@@ -7,8 +7,7 @@ if (args == "-h" || args == "--help") {
         -h, --help: shows this help text
         -b, --balance: shows your balance
     `)
-    return console.log(
-`
+    return console.log(`
 \`\`\`
 Bet: $500 each
 --------------------------
@@ -28,8 +27,7 @@ AAA, AA=       18
 UUU            18
 ===           100
 \`\`\`
-`
-    )
+    `)
 }
 
 if (args == "-b" || args == "--balance") {
