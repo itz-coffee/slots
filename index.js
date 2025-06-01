@@ -51,7 +51,7 @@ function clamp(num, min, max) {
 
 let balance = Number(discord.storage.user.slots_balance) || 10000
 let num = Number(args) || 1
-let bet = clamp(Math.abs(num), 1, 3) * 500
+let bet = clamp(Math.abs(num), 1, 10) * 500
 
 const Symbols = {
     CHERRY: ":cherries:",
@@ -144,7 +144,7 @@ function run() {
     const output = {
         embed: {
             title: "Slots",
-            color: 0xFF00FF,
+            color: getRandomValue(0, 0xFFFFFF),
             fields: [
                 {name: "Bet:", value: "$" + bet.toLocaleString(), inline: true},
                 {name: "Slots:", value: slots.join(" "), inline: true},
