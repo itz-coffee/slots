@@ -52,6 +52,9 @@ function clamp(num, min, max) {
 }
 
 let balance = Number(discord.storage.user.slots_balance) || 10000
+
+if (balance < 0) balance = 10000
+
 let num = Number(args) || 1
 let bet = clamp(Math.abs(num), 1, 10000)
 
