@@ -144,6 +144,10 @@ function run() {
     const slots = spinSlots()
     const payout = getPayout(slots)
     const result = bet * (payout || 0)
+
+    balance -= bet
+    discord.storage.user.slots_balance = balance + result
+
     const output = {
         embed: {
             title: "Slots",
@@ -157,8 +161,6 @@ function run() {
         }
     }
 
-    balance -= bet
-    discord.storage.user.slots_balance = balance + result
     console.log(JSON.stringify(output))
 }
 run()
