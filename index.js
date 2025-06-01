@@ -2,15 +2,14 @@ const args = discord.variables.__args[0]
 
 if (args == "-h" || args == "--help") {
     console.log(`
-.t slots [options] [bet]
+.t slots [bet] [options]
+    bet: $1 each, $10,000 max
     options:
         -h, --help: shows this help text
         -b, --balance: shows your balance
     `)
     return console.log(`
 \`\`\`
-Bet: $500 each
---------------------------
 (%) Cherries     3   7   3
 (O) Oranges      7   1  10
 (@) Grapes       6   1   5
@@ -54,7 +53,7 @@ function clamp(num, min, max) {
 
 let balance = Number(discord.storage.user.slots_balance) || 10000
 let num = Number(args) || 1
-let bet = clamp(Math.abs(num), 1, 10) * 500
+let bet = clamp(Math.abs(num), 1, 10000)
 
 const Symbols = {
     CHERRY: ":cherries:",
