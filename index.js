@@ -33,8 +33,6 @@ if (args == "-h" || args == "--help") {
     options:
         -h, --help: shows this help text
         -b, --balance: shows your balance
-    `)
-    return console.log(`
 \`\`\`
 (%) Cherries     3   7   3
 (O) Oranges      7   1  10
