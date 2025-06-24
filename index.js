@@ -1,6 +1,8 @@
 const args = discord.variables.__args[0]
 const userId = discord.user.id
 
+discord.storage.server.reset_list2 = discord.storage.server.reset_list2 || {}
+
 if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
     const targetId = discord.variables.__args[1]
     discord.storage.server.reset_list2[targetId] = true
