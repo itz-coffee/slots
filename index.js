@@ -11,8 +11,9 @@ if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
         return
     }
 
-    const targetId = target.match(/<@(\d+)>/)[1]    
-    resetList[targetId] = true
+    const targetId = target.match(/<@(\d+)>/)[1]
+    const amount = discord.variables.__args[2] || 10000
+    resetList[targetId] = amount
     const json = JSON.stringify(resetList)
     discord.storage.server.reset_list3 = json
     console.log(json)
@@ -20,10 +21,11 @@ if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
 }
 
 if (resetList[userId]) {
-    discord.storage.user.slots_balance = 10000
+    const amount = resetList[userId]
+    discord.storage.user.slots_balance = amount
     delete resetList[userId]
     discord.storage.server.reset_list3 = JSON.stringify(resetList)
-    console.log("Your balance was reset")
+    console.log("Your balance was reset to", amount)
 }
 
 if (args == "-h" || args == "--help") {
