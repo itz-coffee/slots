@@ -1,6 +1,10 @@
 const args = discord.variables.__args[0]
-const resetList = discord.storage.server.reset_list || {}
 const userId = discord.user.id
+let resetList = discord.storage.server.reset_list
+
+if (!resetList) {
+    resetList = {}
+}
 
 if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
     const targetId = discord.variables.__args[1]
