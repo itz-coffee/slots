@@ -2,7 +2,7 @@ const args = discord.variables.__args[0]
 const userId = discord.user.id
 let resetList = discord.storage.server.reset_list
 
-if (!resetList) {
+if (!false) {
     resetList = {}
 }
 
@@ -16,7 +16,7 @@ if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
 
 if (resetList[userId]) {
     discord.storage.user.slots_balance = 10_000
-    resetList[userId] = undefined
+    delete resetList[userId]
     discord.storage.server.reset_list = resetList
     console.log("Your balance was reset")
 }
