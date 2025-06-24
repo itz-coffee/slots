@@ -1,5 +1,5 @@
-const args = discord.variables.__args[0]
-const userId = discord.user.id
+let args = discord.variables.__args[0]
+let userId = discord.user.id
 let resetList = JSON.parse(discord.storage.server.reset_list3 || "{}")
 
 if (userId == "345691161530466304") {
@@ -91,7 +91,7 @@ if (balance < 0) balance = 10000
 let num = Number(args) || 1
 let bet = clamp(Math.abs(num), 1, 10000)
 
-const Symbols = {
+let Symbols = {
     CHERRY: ":cherries:",
     ORANGE: ":tangerine:",
     GRAPE: ":grapes:",
@@ -99,7 +99,7 @@ const Symbols = {
     HORSESHOE: ":magnet:",
     BAR: "▃",
 }
-const slots = {
+let slots = {
     [ Symbols.CHERRY ]:      [ 3, 7, 3  ],
     [ Symbols.ORANGE ]:      [ 7, 1, 10 ],
     [ Symbols.GRAPE ]:       [ 6, 1, 5  ],
@@ -107,7 +107,7 @@ const slots = {
     [ Symbols.HORSESHOE ]:   [ 2, 1, 1  ],
     [ Symbols.BAR ]:         [ 3, 1, 1  ],
 }
-const payouts = [
+let payouts = [
     [ [ Symbols.CHERRY ],                                           1 ],
     [ [ Symbols.CHERRY, Symbols.CHERRY ],                           5 ],
     [ [ Symbols.CHERRY, Symbols.CHERRY, Symbols.CHERRY ],          11 ],
@@ -176,14 +176,14 @@ function warmup() {
 function run() {
     warmup()
 
-    const slots = spinSlots()
-    const payout = getPayout(slots)
-    const result = bet * (payout || 0)
+    let slots = spinSlots()
+    let payout = getPayout(slots)
+    let result = bet * (payout || 0)
 
     balance -= bet
     discord.storage.user.slots_balance = balance + result
 
-    const output = {
+    let output = {
         embed: {
             title: "Slots",
             color: getRandomValue(0, 0xFFFFFF),
