@@ -18,6 +18,8 @@ if (discord.storage.server.reset_list2[userId]) {
     console.log("Your balance was reset")
 }
 
+return
+
 if (args == "-h" || args == "--help") {
     console.log(`
 .t slots [bet] [options]
