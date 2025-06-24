@@ -10,15 +10,11 @@ if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
     return
 }
 
-console.log(discord.storage.server.reset_list2, userId, discord.storage.server.reset_list2[userId])
-
 if (discord.storage.server.reset_list2[userId]) {
     discord.storage.user.slots_balance = 10000
     delete discord.storage.server.reset_list2[userId]
     console.log("Your balance was reset")
 }
-
-return
 
 if (args == "-h" || args == "--help") {
     console.log(`
