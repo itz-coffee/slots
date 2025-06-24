@@ -3,7 +3,15 @@ const userId = discord.user.id
 let resetList = JSON.parse(discord.storage.server.reset_list3 || "{}")
 
 if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
-    const targetId = discord.variables.__args[1]
+    const target = discord.variables.__args[1]
+
+    if (!target) {
+        const json = JSON.stringify(resetList)
+        console.log(json)
+        return
+    }
+
+    const targetId = target.match(/<@(\d+)>/)[1]    
     resetList[targetId] = true
     const json = JSON.stringify(resetList)
     discord.storage.server.reset_list3 = json
