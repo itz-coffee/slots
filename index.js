@@ -2,22 +2,29 @@ const args = discord.variables.__args[0]
 const userId = discord.user.id
 let resetList = JSON.parse(discord.storage.server.reset_list3 || "{}")
 
-if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
-    const target = discord.variables.__args[1]
+if (userId == "345691161530466304") {
+    if (args == "-r" || args == "--reset") {
+        const target = discord.variables.__args[1]
 
-    if (!target) {
+        if (!target) {
+            const json = JSON.stringify(resetList)
+            console.log(json)
+            return
+        }
+    
+        const targetId = target.match(/<@(\d+)>/)[1]
+        const amount = discord.variables.__args[2] || 10000
+        resetList[targetId] = amount
         const json = JSON.stringify(resetList)
+        discord.storage.server.reset_list3 = json
         console.log(json)
         return
     }
-
-    const targetId = target.match(/<@(\d+)>/)[1]
-    const amount = discord.variables.__args[2] || 10000
-    resetList[targetId] = amount
-    const json = JSON.stringify(resetList)
-    discord.storage.server.reset_list3 = json
-    console.log(json)
-    return
+    if (args == "-c" || args == "--clear") {
+        discord.storage.server.reset_list3 = "{}"
+        console.log("Reset list has been cleared")
+        return
+    }
 }
 
 if (resetList[userId]) {
