@@ -7,6 +7,7 @@ if (userId == "345691161530466304" && (args == "-r" || args == "--reset")) {
     resetList[targetId] = true
     discord.storage.server.reset_list = resetList
     console.log(discord.storage.server.reset_list)
+    return
 }
 
 if (resetList[userId]) {
