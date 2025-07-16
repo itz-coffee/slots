@@ -140,7 +140,7 @@ function spinSlots() {
       }
     }
     let rand = getRandomValue(0, pool[index].length)
-    result.push(Emojis[pool[index][rand]])
+    result.push(pool[index][rand])
   }
   return result
 }
@@ -157,6 +157,7 @@ function run() {
   let slots = spinSlots()
   let payout = getPayout(slots)
   let result = bet * (payout || 0)
+  let emojis = slots.map((x) => Emojis[x]).join("")
 
   balance -= bet
   discord.storage.user.slots_balance = balance + result
@@ -166,7 +167,7 @@ function run() {
       color: getRandomValue(0, 0xFFFFFF),
       fields: [
         {name: "Bet:", value: "$" + bet.toLocaleString(), inline: true},
-        {name: "Slots:", value: slots.join(" "), inline: true},
+        {name: "Slots:", value: emojis, inline: true},
         {name: "Payout:", value: "$" + result.toLocaleString(), inline: true},
         {name: "New Balance:", value: "$" + (balance + result).toLocaleString(), inline: true},
       ]
