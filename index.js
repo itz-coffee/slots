@@ -126,6 +126,8 @@ function getPayout(array) {
       return payout[1]
     }
   }
+
+  return 0
 }
 
 function spinSlots() {
@@ -136,7 +138,7 @@ function spinSlots() {
     for (let key in slots) {
       let val = slots[key]
       for (let i = 0; i < val[index] * 3; i++) {
-        pool[index].push(key)
+        pool[index].push(Number(key))
       }
     }
     let rand = getRandomValue(0, pool[index].length)
