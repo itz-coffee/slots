@@ -172,7 +172,8 @@ function run() {
         {name: "Slots:", value: emojis, inline: true},
         {name: "Payout:", value: "$" + result.toLocaleString(), inline: true},
         {name: "New Balance:", value: "$" + (balance + result).toLocaleString(), inline: true},
-      ]
+      ],
+      footer: `-# ${discord.user.username}`
     }
   }
 
