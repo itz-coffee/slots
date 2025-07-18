@@ -173,7 +173,7 @@ function run() {
         {name: "Payout:", value: "$" + result.toLocaleString(), inline: true},
         {name: "New Balance:", value: "$" + (balance + result).toLocaleString(), inline: true},
       ],
-      footer: `-# ${discord.user.username}`
+      footer: {text: `-# ${discord.user.username}`}
     }
   }
 
