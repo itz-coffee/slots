@@ -166,6 +166,7 @@ function run() {
 
   let output = {
     embed: {
+      title: `${discord.user.username}'s Spin`,
       color: getRandomValue(0, 0xFFFFFF),
       fields: [
         {name: "Bet:", value: "$" + bet.toLocaleString(), inline: true},
@@ -173,7 +174,6 @@ function run() {
         {name: "Payout:", value: "$" + result.toLocaleString(), inline: true},
         {name: "New Balance:", value: "$" + (balance + result).toLocaleString(), inline: true},
       ],
-      footer: {text: `${discord.user.username}`}
     }
   }
 
