@@ -24,6 +24,15 @@ UUU            18
 \`\`\`
 `
 
+if (args == "-h" || args == "--help") {
+  return console.log(helpText)
+}
+
+if (args == "-b" || args == "--balance") {
+  let bal = Number(discord.storage.user.slots_balance)
+  return console.log("$" + bal.toLocaleString())
+}
+
 function getRandomValue(min = 0, max = 100) {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -42,15 +51,6 @@ function arrayEquals(a, b) {
 
 function clamp(num, min, max) {
   return Math.min(Math.max(num, min), max);
-}
-
-if (args == "-h" || args == "--help") {
-  return console.log(helpText)
-}
-
-if (args == "-b" || args == "--balance") {
-  let bal = Number(discord.storage.user.slots_balance)
-  return console.log("$" + bal.toLocaleString())
 }
 
 let balance = Number(discord.storage.user.slots_balance) || 10000
@@ -159,7 +159,7 @@ function run() {
   let slots = spinSlots()
   let payout = getPayout(slots)
   let result = bet * (payout || 0)
-  let emojis = slots.map((x) => Emojis[x]).join("")
+  let emojis = slots.map((x) => Emojis[x]).join(" ")
 
   balance -= bet
   discord.storage.user.slots_balance = balance + result
